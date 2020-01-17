@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawLoginView" customModule="DrawLoginView" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="znd-lh-T9G"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="386"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UXc-6y-0ig">
+                    <rect key="frame" x="0.0" y="12" width="414" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swQ-iv-Nv2">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gD8-bY-9b6" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="NxD-zK-OYb"/>
+                                        <constraint firstAttribute="width" constant="80" id="iIm-5C-eJ1"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="gD8-bY-9b6" firstAttribute="centerX" secondItem="swQ-iv-Nv2" secondAttribute="centerX" id="H6P-hL-htu"/>
+                                <constraint firstItem="gD8-bY-9b6" firstAttribute="centerY" secondItem="swQ-iv-Nv2" secondAttribute="centerY" id="kZM-gl-XtS"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leN-H9-CPo">
+                            <rect key="frame" x="138" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-da-dod" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="ffn-bl-gPh"/>
+                                        <constraint firstAttribute="width" constant="80" id="p14-a1-tYe"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="dAo-da-dod" firstAttribute="centerX" secondItem="leN-H9-CPo" secondAttribute="centerX" id="ECQ-eu-IDx"/>
+                                <constraint firstItem="dAo-da-dod" firstAttribute="centerY" secondItem="leN-H9-CPo" secondAttribute="centerY" id="YhH-Ud-ds1"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJ6-02-zyT">
+                            <rect key="frame" x="276" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxF-iq-ccS" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="6Zx-e7-osw"/>
+                                        <constraint firstAttribute="height" constant="80" id="kCb-7t-y9o"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="wxF-iq-ccS" firstAttribute="centerX" secondItem="nJ6-02-zyT" secondAttribute="centerX" id="IN2-fU-c4b"/>
+                                <constraint firstItem="wxF-iq-ccS" firstAttribute="centerY" secondItem="nJ6-02-zyT" secondAttribute="centerY" id="goE-7G-u3C"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="ogB-un-SCv"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DfI-gs-Z51">
+                    <rect key="frame" x="0.0" y="136" width="414" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-8I-RId">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLq-Vh-ogr" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="900-aS-YlV"/>
+                                        <constraint firstAttribute="width" constant="80" id="elf-Hz-mpu"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="BLq-Vh-ogr" firstAttribute="centerY" secondItem="bVa-8I-RId" secondAttribute="centerY" id="KJ7-tX-AdJ"/>
+                                <constraint firstItem="BLq-Vh-ogr" firstAttribute="centerX" secondItem="bVa-8I-RId" secondAttribute="centerX" id="agX-pO-dhy"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-p3-SXo">
+                            <rect key="frame" x="138" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5F2-Wk-hID" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="4yv-sC-PC6"/>
+                                        <constraint firstAttribute="height" constant="80" id="W9n-gd-QwN"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="5F2-Wk-hID" firstAttribute="centerY" secondItem="efQ-p3-SXo" secondAttribute="centerY" id="0VU-Nu-JeR"/>
+                                <constraint firstItem="5F2-Wk-hID" firstAttribute="centerX" secondItem="efQ-p3-SXo" secondAttribute="centerX" id="Ye5-9q-nNe"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCm-Ku-zrd">
+                            <rect key="frame" x="276" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-ve-Gc9" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="mDg-Vf-wef"/>
+                                        <constraint firstAttribute="width" constant="80" id="xKi-VQ-fxi"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="IOn-ve-Gc9" firstAttribute="centerX" secondItem="lCm-Ku-zrd" secondAttribute="centerX" id="RQo-oE-rrb"/>
+                                <constraint firstItem="IOn-ve-Gc9" firstAttribute="centerY" secondItem="lCm-Ku-zrd" secondAttribute="centerY" id="WFh-st-f9O"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="LOx-gC-AFM"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-ML-C6P">
+                    <rect key="frame" x="0.0" y="260" width="414" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLU-Q1-cZ1">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-5B-mJE" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="4P9-he-QIC"/>
+                                        <constraint firstAttribute="height" constant="80" id="GfR-T3-bxu"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="S8j-5B-mJE" firstAttribute="centerX" secondItem="NLU-Q1-cZ1" secondAttribute="centerX" id="lGq-rv-yxZ"/>
+                                <constraint firstItem="S8j-5B-mJE" firstAttribute="centerY" secondItem="NLU-Q1-cZ1" secondAttribute="centerY" id="zM6-4b-vDq"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-oC-kf1">
+                            <rect key="frame" x="138" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-2h-ETB" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="WCx-Cv-3A4"/>
+                                        <constraint firstAttribute="width" constant="80" id="ckp-nn-CGM"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="7"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="pRU-2h-ETB" firstAttribute="centerY" secondItem="VMb-oC-kf1" secondAttribute="centerY" id="MdV-fm-TXY"/>
+                                <constraint firstItem="pRU-2h-ETB" firstAttribute="centerX" secondItem="VMb-oC-kf1" secondAttribute="centerX" id="nFX-bK-sms"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-mU-UTl">
+                            <rect key="frame" x="276" y="0.0" width="138" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-9C-pxA" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                    <rect key="frame" x="29" y="10" width="80" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="Jwe-61-XvA"/>
+                                        <constraint firstAttribute="height" constant="80" id="tIV-LS-ASG"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
+                                            <integer key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ATS-9C-pxA" firstAttribute="centerX" secondItem="uIP-mU-UTl" secondAttribute="centerX" id="1Op-qh-XAn"/>
+                                <constraint firstItem="ATS-9C-pxA" firstAttribute="centerY" secondItem="uIP-mU-UTl" secondAttribute="centerY" id="eUb-Qo-dUV"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="6Cj-Lf-c0T"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="UXc-6y-0ig" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="6nW-5a-LCo"/>
+                <constraint firstItem="UXc-6y-0ig" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MnT-8p-hkO"/>
+                <constraint firstItem="DfI-gs-Z51" firstAttribute="leading" secondItem="UXc-6y-0ig" secondAttribute="leading" id="Q63-Ab-3ds"/>
+                <constraint firstItem="DfI-gs-Z51" firstAttribute="trailing" secondItem="UXc-6y-0ig" secondAttribute="trailing" id="ebb-mg-Q0M"/>
+                <constraint firstItem="UXc-6y-0ig" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="kQD-zC-AMV"/>
+                <constraint firstItem="CgG-ML-C6P" firstAttribute="leading" secondItem="DfI-gs-Z51" secondAttribute="leading" id="oWK-ef-4vJ"/>
+                <constraint firstItem="CgG-ML-C6P" firstAttribute="top" secondItem="DfI-gs-Z51" secondAttribute="bottom" constant="24" id="pOd-Io-0eK"/>
+                <constraint firstItem="CgG-ML-C6P" firstAttribute="trailing" secondItem="DfI-gs-Z51" secondAttribute="trailing" id="vdp-4O-gwj"/>
+                <constraint firstItem="DfI-gs-Z51" firstAttribute="top" secondItem="UXc-6y-0ig" secondAttribute="bottom" constant="24" id="zXy-LE-Gug"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.19999999999999" y="-14.392803598200901"/>
+        </view>
+    </objects>
+</document>
