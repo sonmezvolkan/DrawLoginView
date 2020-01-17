@@ -23,7 +23,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swQ-iv-Nv2">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gD8-bY-9b6" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gD8-bY-9b6" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -31,9 +31,7 @@
                                         <constraint firstAttribute="width" constant="80" id="iIm-5C-eJ1"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="0"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="Q"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -46,7 +44,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leN-H9-CPo">
                             <rect key="frame" x="138" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-da-dod" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-da-dod" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -54,9 +52,7 @@
                                         <constraint firstAttribute="width" constant="80" id="p14-a1-tYe"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="W"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -69,7 +65,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJ6-02-zyT">
                             <rect key="frame" x="276" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxF-iq-ccS" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxF-iq-ccS" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -77,9 +73,7 @@
                                         <constraint firstAttribute="height" constant="80" id="kCb-7t-y9o"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="E"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -101,7 +95,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-8I-RId">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLq-Vh-ogr" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLq-Vh-ogr" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -109,9 +103,7 @@
                                         <constraint firstAttribute="width" constant="80" id="elf-Hz-mpu"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="3"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="A"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -124,7 +116,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-p3-SXo">
                             <rect key="frame" x="138" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5F2-Wk-hID" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5F2-Wk-hID" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -132,9 +124,7 @@
                                         <constraint firstAttribute="height" constant="80" id="W9n-gd-QwN"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="4"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="S"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -147,7 +137,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCm-Ku-zrd">
                             <rect key="frame" x="276" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-ve-Gc9" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-ve-Gc9" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -155,9 +145,7 @@
                                         <constraint firstAttribute="width" constant="80" id="xKi-VQ-fxi"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="D"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -179,7 +167,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLU-Q1-cZ1">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-5B-mJE" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-5B-mJE" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -187,9 +175,7 @@
                                         <constraint firstAttribute="height" constant="80" id="GfR-T3-bxu"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="6"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="Z"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -202,7 +188,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-oC-kf1">
                             <rect key="frame" x="138" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-2h-ETB" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-2h-ETB" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -210,9 +196,7 @@
                                         <constraint firstAttribute="width" constant="80" id="ckp-nn-CGM"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="7"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="X"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -225,7 +209,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-mU-UTl">
                             <rect key="frame" x="276" y="0.0" width="138" height="100"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-9C-pxA" customClass="CircleView" customModule="UIPanTest" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-9C-pxA" customClass="CircleView" customModule="DrawLoginView" customModuleProvider="target">
                                     <rect key="frame" x="29" y="10" width="80" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -233,9 +217,7 @@
                                         <constraint firstAttribute="height" constant="80" id="tIV-LS-ASG"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="Key">
-                                            <integer key="value" value="8"/>
-                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="Key" value="C"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>

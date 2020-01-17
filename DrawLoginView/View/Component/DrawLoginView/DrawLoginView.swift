@@ -12,7 +12,11 @@ open class DrawLoginView: UIView
 {
     private var borderColor = UIColor(red: 13, green: 24, blue: 31);
     private var borderWidth: CGFloat = 10.0;
+    private var withAnimate: Bool = true;
+    private var scaleValue: CGFloat = 0.9;
     private var showFootPrint = true;
+    
+    private var onMoveFinished: ((String) -> Void)?;
     
     @IBInspectable public var BorderWidth: CGFloat
     {
@@ -38,10 +42,22 @@ open class DrawLoginView: UIView
         set { CircleView.UNSELECTED_COLOR = newValue; }
     }
     
+    @IBInspectable public var WithAnimate: Bool
+    {
+        get { return self.withAnimate; }
+        set { self.withAnimate = newValue; }
+    }
+    
+    @IBInspectable public var ScaleValue: CGFloat
+    {
+        get { return self.scaleValue; }
+        set { self.scaleValue = newValue; }
+    }
+    
     @IBInspectable public var ShowFootPrint: Bool
     {
-        get { return showFootPrint; }
-        set { showFootPrint = newValue; }
+        get { return self.showFootPrint; }
+        set { self.showFootPrint = newValue; }
     }
     
     private var route: [CircleView]?;
@@ -63,13 +79,15 @@ open class DrawLoginView: UIView
     
     private func setUp()
     {
-        let podBundle = Bundle(for: DrawLoginView.self)
-        let bundleURL = podBundle.url(forResource: "DrawLoginView", withExtension: "bundle")
-        let bundle = Bundle(url: bundleURL!)!
-        bundle.loadNibNamed("DrawLoginView", owner: self, options: nil);
+        Bundle.main.loadNibNamed("DrawLoginView", owner: self, options: nil);
         self.addSubview(self.contentView);
         self.contentView.frame = self.bounds;
         self.contentView.autoresizingMask = [ .flexibleWidth, .flexibleHeight];
+    }
+
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        self.changeBackgroundCircleViews();
     }
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -78,15 +96,10 @@ open class DrawLoginView: UIView
         {
             if  let point = touches.first?.location(in: self.superview)
             {
-                if let superview = self.superview, let viewTouched = superview.hitTest(point, with: event),viewTouched == view
+                if let viewTouched = self.superview!.hitTest(point, with: event), viewTouched == view
                 {
-                    print("Tapped")
                     self.route = [CircleView]();
                     break;
-                }
-                else
-                {
-                    print("Not Tapped")
                 }
             }
         }
@@ -94,24 +107,24 @@ open class DrawLoginView: UIView
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        if let point = touches.first?.location(in: self.superview)
+        if let point = touches.first?.location(in: self.superview), let drawLoginViewFrame = self.globalFrame
         {
-            print("\(point)");
-            
-            for view in self.allSubviews where view is CircleView
+            if (self.isInArea(point: point, frame: drawLoginViewFrame))
             {
-                if let circleViewFrame = view.globalFrame
+                for view in self.allSubviews where view is CircleView
                 {
-                    print("\(circleViewFrame)");
-                    
-                    if (point.x >= circleViewFrame.origin.x && point.x <= circleViewFrame.origin.x + circleViewFrame.width
-                        && point.y >= circleViewFrame.origin.y && point.y <= circleViewFrame.origin.y + circleViewFrame.height
-                        )
+                    if let circleViewFrame = view.globalFrame
                     {
-                        self.addRoute(circleView: view as! CircleView);
-                        
+                        if (self.isInArea(point: point, frame: circleViewFrame))
+                        {
+                            self.addRoute(circleView: view as! CircleView);
+                        }
                     }
                 }
+            }
+            else
+            {
+                self.reset();
             }
         }
     }
@@ -125,7 +138,6 @@ open class DrawLoginView: UIView
                 print("\(circleView.Key)");
             }
         }
-        
         self.reset();
     }
 }
@@ -137,7 +149,7 @@ extension DrawLoginView
         if (self.isLastNode(circleView: circleView))
         {
             self.route!.append(circleView);
-            circleView.select();
+            circleView.select(withAnimate: self.withAnimate, scaleValue: self.scaleValue);
             self.addFootPrint();
         }
     }
@@ -170,16 +182,16 @@ extension DrawLoginView
     
     private func addFootPrint()
     {
-        if let route = self.route, route.count > 1, showFootPrint
+        if let route = self.route, route.count > 1, ShowFootPrint
         {
             let startFrame = route[route.count - 2].globalFrame;
-            let endFrame = route[route.count - 1].globalFrame;
+            let destinationFrame = route[route.count - 1].globalFrame;
 
             let startPoint = CGPoint(x: (startFrame!.origin.x + (startFrame!.width / 2)), y: startFrame!.origin.y + (startFrame!.height / 2));
-            let endPoint = CGPoint(x: (endFrame!.origin.x + (endFrame!.width / 2)), y: endFrame!.origin.y + (endFrame!.height / 2));
+            let destinationPoint = CGPoint(x: (destinationFrame!.origin.x + (destinationFrame!.width / 2)), y: destinationFrame!.origin.y + (destinationFrame!.height / 2));
             
             let sPoint = convert(startPoint, from: self.superview);
-            let ePoint = convert(endPoint, from: self.superview);
+            let ePoint = convert(destinationPoint, from: self.superview);
             
             self.drawLine(start: sPoint, end: ePoint);
         }
@@ -198,26 +210,64 @@ extension DrawLoginView
         shapeLayer.zPosition = -1;
         
         self.footPrints.append(shapeLayer);
+        
         self.layer.addSublayer(shapeLayer);
     }
-}
-extension DrawLoginView
-{
-    open func reset()
+    
+    private func isInArea(point: CGPoint, frame: CGRect) -> Bool
     {
-        for circleView in self.allSubviews where circleView is CircleView
+        if (point.x >= frame.origin.x && point.x <= frame.origin.x + frame.width
+            && point.y >= frame.origin.y && point.y <= frame.origin.y + frame.height)
         {
-            let circle = circleView as! CircleView;
-            circle.reset();
-            self.route?.removeAll();
-            print("\(circle.Key)");
+            return true;
         }
-        
+        return false;
+    }
+    
+    private func setResult()
+    {
+        if let route = self.route, route.count > 0
+        {
+            var result = "";
+            for circleView in route
+            {
+                result += circleView.Key;
+                circleView.reset();
+            }
+            self.onMoveFinished?(result);
+            self.route?.removeAll();
+        }
+    }
+    
+    private func resetFootPrints()
+    {
         for shape in self.footPrints
         {
             shape.removeFromSuperlayer();
         }
         self.footPrints.removeAll();
+    }
+    
+    public func changeBackgroundCircleViews()
+    {
+        for circleView in self.allSubviews where circleView is CircleView
+        {
+            circleView.backgroundColor = self.UnSelectedColor;
+        }
+    }
+}
+
+extension DrawLoginView
+{
+    public func reset()
+    {
+        self.setResult();
+        self.resetFootPrints();
+    }
+    
+    public func setOnMoveFinished(onMoveFinished: @escaping ((String) -> Void))
+    {
+        self.onMoveFinished = onMoveFinished;
     }
 }
 
