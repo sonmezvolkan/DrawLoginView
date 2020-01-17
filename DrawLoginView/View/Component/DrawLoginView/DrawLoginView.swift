@@ -12,6 +12,7 @@ open class DrawLoginView: UIView
 {
     private var borderColor = UIColor(red: 13, green: 24, blue: 31);
     private var borderWidth: CGFloat = 10.0;
+    private var showFootPrint = true;
     
     @IBInspectable public var BorderWidth: CGFloat
     {
@@ -37,10 +38,14 @@ open class DrawLoginView: UIView
         set { CircleView.UNSELECTED_COLOR = newValue; }
     }
     
+    @IBInspectable public var ShowFootPrint: Bool
+    {
+        get { return showFootPrint; }
+        set { showFootPrint = newValue; }
+    }
+    
     private var route: [CircleView]?;
     private var footPrints: [CAShapeLayer] = [CAShapeLayer]();
-    
-    private var allowFootPrint = false;
     
     @IBOutlet var contentView: UIView!
     
@@ -165,16 +170,16 @@ extension DrawLoginView
     
     private func addFootPrint()
     {
-        if let route = self.route, route.count > 1, allowFootPrint
+        if let route = self.route, route.count > 1, showFootPrint
         {
             let startFrame = route[route.count - 2].globalFrame;
-            let destinationFrame = route[route.count - 1].globalFrame;
+            let endFrame = route[route.count - 1].globalFrame;
 
             let startPoint = CGPoint(x: (startFrame!.origin.x + (startFrame!.width / 2)), y: startFrame!.origin.y + (startFrame!.height / 2));
-            let destinationPoint = CGPoint(x: (destinationFrame!.origin.x + (destinationFrame!.width / 2)), y: destinationFrame!.origin.y + (destinationFrame!.height / 2));
+            let endPoint = CGPoint(x: (endFrame!.origin.x + (endFrame!.width / 2)), y: endFrame!.origin.y + (endFrame!.height / 2));
             
             let sPoint = convert(startPoint, from: self.superview);
-            let ePoint = convert(destinationPoint, from: self.superview);
+            let ePoint = convert(endPoint, from: self.superview);
             
             self.drawLine(start: sPoint, end: ePoint);
         }
