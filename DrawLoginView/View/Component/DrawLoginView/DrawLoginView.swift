@@ -91,6 +91,8 @@ open class DrawLoginView: UIView
     {
         if let point = touches.first?.location(in: self.superview)
         {
+            print("\(point)");
+            
             for view in self.allSubviews where view is CircleView
             {
                 if let circleViewFrame = view.globalFrame
