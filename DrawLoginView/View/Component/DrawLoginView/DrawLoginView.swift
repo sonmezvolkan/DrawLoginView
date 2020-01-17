@@ -79,7 +79,10 @@ open class DrawLoginView: UIView
     
     private func setUp()
     {
-        Bundle.main.loadNibNamed("DrawLoginView", owner: self, options: nil);
+        let podBundle = Bundle(for: DrawLoginView.self);
+        let bundleURL = podBundle.url(forResource: "DrawLoginView", withExtension: "bundle");
+        let bundle = Bundle(url: bundleURL!)!;
+        bundle.loadNibNamed("DrawLoginView", owner: self, options: nil);
         self.addSubview(self.contentView);
         self.contentView.frame = self.bounds;
         self.contentView.autoresizingMask = [ .flexibleWidth, .flexibleHeight];
