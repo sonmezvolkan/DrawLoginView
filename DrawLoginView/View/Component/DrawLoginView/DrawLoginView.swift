@@ -73,7 +73,7 @@ open class DrawLoginView: UIView
         {
             if  let point = touches.first?.location(in: self.superview)
             {
-                if let viewTouched = self.hitTest(point, with: event),viewTouched == view
+                if let superview = self.superview, let viewTouched = superview.hitTest(point, with: event),viewTouched == view
                 {
                     print("Tapped")
                     self.route = [CircleView]();
