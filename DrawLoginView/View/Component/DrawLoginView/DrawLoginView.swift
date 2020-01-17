@@ -95,6 +95,8 @@ open class DrawLoginView: UIView
             {
                 if let circleViewFrame = view.globalFrame
                 {
+                    print("\(circleViewFrame)");
+                    
                     if (point.x >= circleViewFrame.origin.x && point.x <= circleViewFrame.origin.x + circleViewFrame.width
                         && point.y >= circleViewFrame.origin.y && point.y <= circleViewFrame.origin.y + circleViewFrame.height
                         )
