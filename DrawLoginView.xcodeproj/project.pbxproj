@@ -14,7 +14,8 @@
 		333AB2D823D135D90097D84A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AB2D723D135D90097D84A /* UIColorExtension.swift */; };
 		333AB2DD23D136A40097D84A /* DrawLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AB2DC23D136A40097D84A /* DrawLoginView.swift */; };
 		333AB2E023D136BA0097D84A /* DrawLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 333AB2DF23D136BA0097D84A /* DrawLoginView.xib */; };
-		333AB2E323D137060097D84A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AB2E223D137060097D84A /* CircleView.swift */; };
+		333AB2E323D137060097D84A /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AB2E223D137060097D84A /* NodeView.swift */; };
+		33993D9B24D5F20B00BA0E89 /* DrawLoginDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33993D9A24D5F20B00BA0E89 /* DrawLoginDesignable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,8 @@
 		333AB2D723D135D90097D84A /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		333AB2DC23D136A40097D84A /* DrawLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLoginView.swift; sourceTree = "<group>"; };
 		333AB2DF23D136BA0097D84A /* DrawLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawLoginView.xib; sourceTree = "<group>"; };
-		333AB2E223D137060097D84A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		333AB2E223D137060097D84A /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
+		33993D9A24D5F20B00BA0E89 /* DrawLoginDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLoginDesignable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,7 @@
 		333AB2DA23D136870097D84A /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				333AB2E123D136FB0097D84A /* CircleView */,
+				333AB2E123D136FB0097D84A /* NodeView */,
 				333AB2DB23D1368E0097D84A /* DrawLoginView */,
 			);
 			path = Component;
@@ -135,18 +137,19 @@
 		333AB2DB23D1368E0097D84A /* DrawLoginView */ = {
 			isa = PBXGroup;
 			children = (
+				33993D9A24D5F20B00BA0E89 /* DrawLoginDesignable.swift */,
 				333AB2DC23D136A40097D84A /* DrawLoginView.swift */,
 				333AB2DF23D136BA0097D84A /* DrawLoginView.xib */,
 			);
 			path = DrawLoginView;
 			sourceTree = "<group>";
 		};
-		333AB2E123D136FB0097D84A /* CircleView */ = {
+		333AB2E123D136FB0097D84A /* NodeView */ = {
 			isa = PBXGroup;
 			children = (
-				333AB2E223D137060097D84A /* CircleView.swift */,
+				333AB2E223D137060097D84A /* NodeView.swift */,
 			);
-			path = CircleView;
+			path = NodeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333AB2E323D137060097D84A /* CircleView.swift in Sources */,
+				333AB2E323D137060097D84A /* NodeView.swift in Sources */,
 				333AB2D623D135C30097D84A /* UIViewExtension.swift in Sources */,
 				333AB2DD23D136A40097D84A /* DrawLoginView.swift in Sources */,
+				33993D9B24D5F20B00BA0E89 /* DrawLoginDesignable.swift in Sources */,
 				333AB2D823D135D90097D84A /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

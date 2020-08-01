@@ -8,62 +8,17 @@
 
 import UIKit;
 
-open class DrawLoginView: UIView
+public class DrawLoginView: DrawLoginDesignable
 {
-    private var borderColor = UIColor(red: 13, green: 24, blue: 31);
-    private var borderWidth: CGFloat = 10.0;
-    private var withAnimate: Bool = true;
-    private var scaleValue: CGFloat = 0.9;
-    private var showFootPrint = true;
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var mainStackView: UIStackView!
     
     private var onMoveFinished: ((String) -> Void)?;
     
-    @IBInspectable public var BorderWidth: CGFloat
-    {
-        get { return self.borderWidth; }
-        set { self.borderWidth = newValue; }
-    }
-    
-    @IBInspectable public var BorderColor: UIColor
-    {
-        get { return self.borderColor; }
-        set { self.borderColor = newValue; }
-    }
-    
-    @IBInspectable public var SelectedColor: UIColor
-    {
-        get { return CircleView.SELECTED_COLOR; }
-        set { CircleView.SELECTED_COLOR = newValue; }
-    }
-    
-    @IBInspectable public var UnSelectedColor: UIColor
-    {
-        get { return CircleView.UNSELECTED_COLOR; }
-        set { CircleView.UNSELECTED_COLOR = newValue; }
-    }
-    
-    @IBInspectable public var WithAnimate: Bool
-    {
-        get { return self.withAnimate; }
-        set { self.withAnimate = newValue; }
-    }
-    
-    @IBInspectable public var ScaleValue: CGFloat
-    {
-        get { return self.scaleValue; }
-        set { self.scaleValue = newValue; }
-    }
-    
-    @IBInspectable public var ShowFootPrint: Bool
-    {
-        get { return self.showFootPrint; }
-        set { self.showFootPrint = newValue; }
-    }
-    
-    private var route: [CircleView]?;
+    private var route: [NodeView]?;
     private var footPrints: [CAShapeLayer] = [CAShapeLayer]();
     
-    @IBOutlet var contentView: UIView!
+    private var keys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
     override public init(frame: CGRect)
     {
@@ -90,18 +45,18 @@ open class DrawLoginView: UIView
 
     open override func awakeFromNib() {
         super.awakeFromNib()
-        self.changeBackgroundCircleViews();
+        self.changeBackgroundNodeViews();
     }
-
+    
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        for view in self.allSubviews where view is CircleView
+        for view in self.allSubviews where view is NodeView
         {
             if  let point = touches.first?.location(in: self.superview)
             {
                 if let viewTouched = self.superview!.hitTest(point, with: event), viewTouched == view
                 {
-                    self.route = [CircleView]();
+                    self.route = [NodeView]();
                     break;
                 }
             }
@@ -114,13 +69,13 @@ open class DrawLoginView: UIView
         {
             if (self.isInArea(point: point, frame: drawLoginViewFrame))
             {
-                for view in self.allSubviews where view is CircleView
+                for view in self.allSubviews where view is NodeView
                 {
-                    if let circleViewFrame = view.globalFrame
+                    if let nodeViewFrame = view.globalFrame
                     {
-                        if (self.isInArea(point: point, frame: circleViewFrame))
+                        if (self.isInArea(point: point, frame: nodeViewFrame))
                         {
-                            self.addRoute(circleView: view as! CircleView);
+                            self.addRoute(nodeView: view as! NodeView);
                         }
                     }
                 }
@@ -136,28 +91,83 @@ open class DrawLoginView: UIView
     {
         if let route = self.route
         {
-            for circleView in route
+            for nodeView in route
             {
-                print("\(circleView.Key)");
+                print("\(nodeView.key)");
             }
         }
         self.reset();
     }
 }
 
+extension DrawLoginView {
+    
+    private func removeAllRows() {
+        for row in mainStackView.arrangedSubviews {
+            mainStackView.removeArrangedSubview(row)
+        }
+    }
+    
+    private func createRowsAndColumns() {
+        if rowColumnCount <= 0 { return }
+        
+        for row in 0..<rowColumnCount {
+            mainStackView.addArrangedSubview(createRow(row: row))
+        }
+    }
+    
+    private func createRow(row: Int) -> UIView {
+        let horizontalStackView = UIStackView()
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.spacing = 0
+        horizontalStackView.alignment = .fill
+        horizontalStackView.distribution = .fillEqually
+        horizontalStackView.backgroundColor = .clear
+        
+        for column in 0..<rowColumnCount {
+            horizontalStackView.addArrangedSubview(createColumn(row: row, column: column))
+        }
+        
+        return horizontalStackView
+    }
+    
+    private func createColumn(row: Int, column: Int) -> UIView {
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
+        
+        let nodeView = NodeView()
+        containerView.addSubview(nodeView)
+        nodeView.translatesAutoresizingMaskIntoConstraints = false
+        nodeView.widthAnchor.constraint(equalToConstant: nodeWidth).isActive = true
+        nodeView.heightAnchor.constraint(equalToConstant: nodeWidth).isActive = true
+        nodeView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        nodeView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        nodeView.backgroundColor = NodeView.UNSELECTED_COLOR
+        nodeView.key = getKey(row: row, column: column)
+        nodeView.design(width: nodeWidth)
+        
+        return containerView
+    }
+    
+    private func getKey(row: Int, column: Int) -> String {
+        let index = row * rowColumnCount + column
+        return keys[index]
+    }
+}
+
 extension DrawLoginView
 {
-    private func addRoute(circleView: CircleView)
+    private func addRoute(nodeView: NodeView)
     {
-        if (self.isLastNode(circleView: circleView))
+        if (self.isLastNode(nodeView: nodeView))
         {
-            self.route!.append(circleView);
-            circleView.select(withAnimate: self.withAnimate, scaleValue: self.scaleValue);
+            self.route!.append(nodeView);
+            nodeView.select(withAnimate: self.withAnimate, scaleValue: self.scaleValue);
             self.addFootPrint();
         }
     }
     
-    private func isLastNode(circleView: CircleView) -> Bool
+    private func isLastNode(nodeView: NodeView) -> Bool
     {
         if let route = self.route
         {
@@ -168,13 +178,13 @@ extension DrawLoginView
             
             if (route.count == 1)
             {
-                if (route[0].Key != circleView.Key)
+                if (route[0].key != nodeView.key)
                 {
                     return true;
                 }
             }
             
-            if (route[route.count - 1].Key != circleView.Key)
+            if (route[route.count - 1].key != nodeView.key)
             {
                 return true;
             }
@@ -185,7 +195,7 @@ extension DrawLoginView
     
     private func addFootPrint()
     {
-        if let route = self.route, route.count > 1, ShowFootPrint
+        if let route = self.route, route.count > 1, showFootPrint
         {
             let startFrame = route[route.count - 2].globalFrame;
             let destinationFrame = route[route.count - 1].globalFrame;
@@ -232,10 +242,10 @@ extension DrawLoginView
         if let route = self.route, route.count > 0
         {
             var result = "";
-            for circleView in route
+            for nodeView in route
             {
-                result += circleView.Key;
-                circleView.reset();
+                result += nodeView.key;
+                nodeView.reset();
             }
             self.onMoveFinished?(result);
             self.route?.removeAll();
@@ -251,17 +261,26 @@ extension DrawLoginView
         self.footPrints.removeAll();
     }
     
-    public func changeBackgroundCircleViews()
+    public func changeBackgroundNodeViews()
     {
-        for circleView in self.allSubviews where circleView is CircleView
+        for nodeView in self.allSubviews where nodeView is NodeView
         {
-            circleView.backgroundColor = self.UnSelectedColor;
+            nodeView.backgroundColor = self.unSelectedColor;
         }
     }
 }
 
 extension DrawLoginView
 {
+    public func setKeys(keys: [String]) {
+        self.keys = keys
+    }
+    
+    public func drawLoginView() {
+        removeAllRows()
+        createRowsAndColumns()
+    }
+    
     public func reset()
     {
         self.setResult();
