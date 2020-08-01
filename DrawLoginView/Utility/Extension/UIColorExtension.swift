@@ -2,7 +2,7 @@
 //  UIColorExtension.swift
 //  DrawLoginView
 //
-//  Created by Mobil Bankacılık on 16.01.2020.
+//  Created by Volkan Sönmez on 16.01.2020.
 //  Copyright © 2020 sonmez.volkan. All rights reserved.
 //
 
