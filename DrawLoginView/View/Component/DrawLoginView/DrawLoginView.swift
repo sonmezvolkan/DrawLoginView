@@ -15,7 +15,7 @@ public class DrawLoginView: DrawLoginDesignable
     
     private var onMoveFinished: ((String) -> Void)?;
     
-    private var route: [NodeView]?;
+    private var route = [NodeView]()
     private var footPrints: [CAShapeLayer] = [CAShapeLayer]();
     
     private var keys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -89,13 +89,10 @@ public class DrawLoginView: DrawLoginDesignable
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        if let route = self.route
-        {
-            for nodeView in route
-            {
-                print("\(nodeView.key)");
-            }
+        for nodeView in route {
+            print("\(nodeView.key)");
         }
+        
         self.reset();
     }
 }
@@ -144,6 +141,8 @@ extension DrawLoginView {
         nodeView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         nodeView.backgroundColor = NodeView.UNSELECTED_COLOR
         nodeView.key = getKey(row: row, column: column)
+        nodeView.row = row
+        nodeView.column = column
         nodeView.design(width: nodeWidth)
         
         return containerView
@@ -159,43 +158,115 @@ extension DrawLoginView
 {
     private func addRoute(nodeView: NodeView)
     {
-        if (self.isLastNode(nodeView: nodeView))
+        if (!isSelfNode(nodeView: nodeView))
         {
-            self.route!.append(nodeView);
+            self.route.append(nodeView);
             nodeView.select(withAnimate: self.withAnimate, scaleValue: self.scaleValue);
             self.addFootPrint();
+            if route.count > 1 {
+                autoSelectNodesOnWay(nodeView: route[route.count - 2])
+            }
         }
     }
     
-    private func isLastNode(nodeView: NodeView) -> Bool
-    {
-        if let route = self.route
-        {
-            if (route.count == 0)
-            {
-                return true;
-            }
-            
-            if (route.count == 1)
-            {
-                if (route[0].key != nodeView.key)
-                {
-                    return true;
+    private func insertNodeForOnWay(node: NodeView) {
+        node.selectWithoutAnimation()
+        
+        print("tmp key: \(node.key)")
+        route.insert(node, at: route.count - 1)
+    }
+    
+    private func autoSelectNodesOnWay(nodeView: NodeView) {
+        guard let nodeRow = nodeView.row, let nodeColumn = nodeView.column, route.count > 0, let lastNode = route.last else { return }
+        
+        if nodeRow == lastNode.row {
+            print("horizontal")
+            selectHorizontallNodesOnWay(nodeView: nodeView, lastNode: lastNode)
+        }
+        
+        if nodeColumn == lastNode.column {
+            print("vertical")
+            selectVerticalNodesOnWay(nodeView: nodeView, lastNode: lastNode)
+        }
+    }
+    
+    private func selectVerticalNodesOnWay(nodeView: NodeView, lastNode: NodeView) {
+        guard let nodeRow = nodeView.row, let lastNodeRow = lastNode.row else { return }
+        if nodeRow - nodeRow == 1 || nodeRow - lastNodeRow == -1 { return }
+        
+        print("node column: \(nodeRow)   - lastNodeColunm: \(lastNodeRow)")
+        if nodeRow < lastNodeRow {
+            let startIndex = nodeRow + 1
+            for index in startIndex..<lastNodeRow {
+                let rowStackView = mainStackView.arrangedSubviews[index] as! UIStackView
+                let containerView = rowStackView.arrangedSubviews[nodeView.column!]
+                if let tmpNodeView = containerView.getNodeViewIfIsExist() {
+                    insertNodeForOnWay(node: tmpNodeView)
                 }
             }
-            
-            if (route[route.count - 1].key != nodeView.key)
-            {
-                return true;
-            }
-            return false;
         }
-        return false;
+        
+        if lastNodeRow < nodeRow {
+            let startIndex = nodeRow - 1
+            for index in stride(from: startIndex, to: lastNodeRow, by: -1) {
+                let rowStackView = mainStackView.arrangedSubviews[index] as! UIStackView
+                let containerView = rowStackView.arrangedSubviews[nodeView.column!]
+                if let tmpNodeView = containerView.getNodeViewIfIsExist() {
+                    insertNodeForOnWay(node: tmpNodeView)
+                }
+            }
+        }
+    }
+    
+    private func selectHorizontallNodesOnWay(nodeView: NodeView, lastNode: NodeView) {
+        guard let nodeColumn = nodeView.column, let lastNodeColumn = lastNode.column else { return }
+        if nodeColumn - lastNodeColumn == 1 || nodeColumn - lastNodeColumn == -1 { return }
+        let rowStackView = mainStackView.arrangedSubviews[nodeView.row!] as! UIStackView
+        
+        print("node column: \(nodeColumn)   - lastNodeColunm: \(lastNodeColumn)")
+        if nodeColumn < lastNodeColumn {
+            let startIndex = nodeColumn + 1
+            for index in startIndex..<lastNodeColumn {
+                let containerView = rowStackView.arrangedSubviews[index]
+                if let tmpNodeView = containerView.getNodeViewIfIsExist() {
+                    insertNodeForOnWay(node: tmpNodeView)
+                }
+            }
+        }
+        
+        if nodeColumn > lastNodeColumn {
+            let startIndex = nodeColumn - 1
+            for index in stride(from: startIndex, to: lastNodeColumn, by: -1) {
+                let containerView = rowStackView.arrangedSubviews[index]
+                if let tmpNodeView = containerView.getNodeViewIfIsExist() {
+                    insertNodeForOnWay(node: tmpNodeView)
+                }
+            }
+        }
+    }
+    
+    private func isSelfNode(nodeView: NodeView) -> Bool
+    {
+        if (route.count == 0) {
+            return false
+        }
+            
+        if (route.count == 1) {
+            if (route[0].key != nodeView.key) {
+                return false
+            }
+        }
+            
+        if (route[route.count - 1].key != nodeView.key) {
+            return false
+        }
+
+        return true
     }
     
     private func addFootPrint()
     {
-        if let route = self.route, route.count > 1, showFootPrint
+        if route.count > 1, showFootPrint
         {
             let startFrame = route[route.count - 2].globalFrame;
             let destinationFrame = route[route.count - 1].globalFrame;
@@ -239,8 +310,7 @@ extension DrawLoginView
     
     private func setResult()
     {
-        if let route = self.route, route.count > 0
-        {
+        if route.count > 0 {
             var result = "";
             for nodeView in route
             {
@@ -248,7 +318,7 @@ extension DrawLoginView
                 nodeView.reset();
             }
             self.onMoveFinished?(result);
-            self.route?.removeAll();
+            self.route.removeAll();
         }
     }
     
@@ -276,7 +346,7 @@ extension DrawLoginView
         self.keys = keys
     }
     
-    public func drawLoginView() {
+    public func createRows() {
         removeAllRows()
         createRowsAndColumns()
     }

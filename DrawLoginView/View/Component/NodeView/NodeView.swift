@@ -15,6 +15,9 @@ public class NodeView: UIView
     
     private var _key: String = "";
     
+    public var row: Int?
+    public var column: Int?
+    
     @IBInspectable public var key: String
     {
         get { return self._key; }
@@ -59,6 +62,10 @@ public class NodeView: UIView
         {
             self.backgroundColor = NodeView.SELECTED_COLOR;
         }
+    }
+    
+    public func selectWithoutAnimation() {
+        self.backgroundColor = NodeView.SELECTED_COLOR;
     }
     
     private func animate(scaleValue: CGFloat)

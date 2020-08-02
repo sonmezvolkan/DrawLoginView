@@ -26,4 +26,12 @@ extension UIView
         let rotation = self.transform.rotated(by: radians);
         self.transform = rotation;
     }
+    
+    public func getNodeViewIfIsExist() -> NodeView? {
+        for subview in allSubviews where subview is NodeView {
+            return subview as? NodeView
+        }
+        
+        return nil
+    }
 }
