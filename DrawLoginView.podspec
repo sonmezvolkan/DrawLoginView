@@ -24,7 +24,10 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "Some description needed"
+  spec.description  = "This library provides an easy way to login with drawing shape." \
+  					  "You can use for an alternative for user login if you do not want to use password field." \
+  					  "Library creates 3x3 matrix as default. You can change matrix row and column count." \
+  					  "You can change selectedcolor unselectedcolor and footprint color"
 
   spec.homepage     = "https://github.com/sonmezvolkan"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
