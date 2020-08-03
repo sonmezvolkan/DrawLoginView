@@ -18,7 +18,7 @@ DrawLoginView supports swift 5.0, iOS 10
 ```swift
 @IBOutlet weak var drawLoginVew: DrawLoginView!
 
- drawLoginVew.rowColumnCount = 
+ drawLoginVew.rowColumnCount = 4
  drawLoginVew.createRows()
  drawLoginVew.setOnMoveFinished { [weak self] (result) in
     print(result) // password
